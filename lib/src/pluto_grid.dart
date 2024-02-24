@@ -585,7 +585,7 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
     }
   }
 
-  KeyEventResult _handleGridFocusOnKey(FocusNode focusNode, RawKeyEvent event) {
+  KeyEventResult _handleGridFocusOnKey(FocusNode focusNode, KeyEvent event) {
     if (_keyManager.eventResult.isSkip == false) {
       _keyManager.subject.add(PlutoKeyManagerEvent(
         focusNode: focusNode,
@@ -601,7 +601,7 @@ class PlutoGridState extends PlutoStateWithChange<PlutoGrid> {
     return Focus(
       canRequestFocus: false,
       onFocusChange: _stateManager.setKeepFocus,
-      onKey: _handleGridFocusOnKey,
+      onKeyEvent: _handleGridFocusOnKey,
       child: _GridContainer(
         stateManager: _stateManager,
         child: LayoutBuilder(
